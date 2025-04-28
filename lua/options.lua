@@ -1,0 +1,80 @@
+local g = vim.g
+local opt = vim.opt
+local api = vim.api
+
+-- Maps <Leader> to <SPACE>.
+g.mapleader = " "
+g.maplocalleader = " "
+
+-- Eanbles mouse support for all modes.
+opt.mouse = 'a'
+-- Uses the clipboard register '*', same as system.
+opt.clipboard = "unnamedplus"
+-- Make command-line have 2 screen line.
+opt.cmdheight = 2
+-- Highlight column 79.
+opt.colorcolumn = "79"
+-- Avoid certain operations raise a dialog
+--  when exiting unsaved files.
+opt.confirm = true
+-- Highlight the text line of the cursor.
+opt.cursorline = true
+-- Ignore case in search patterns.
+opt.ignorecase = true
+-- Print the line number in front of each line.
+opt.number = true
+-- Show the line number relative to the line with
+--  the cursor in front of each line.
+opt.relativenumber = true
+-- Set the cursor line to be always in the middle
+--  of the window, except at the start or end of the file.
+opt.scrolloff = 999
+-- Number of spaces that a tab in the file counts for.
+opt.tabstop = 2
+-- Number of spaces to use for each step of indent.
+opt.shiftwidth = 2
+-- Use space instead of tab when indenting with '>' or '<'.
+opt.expandtab = true
+-- l: Use "999L, 888B" instead of "999 lines, 888 bytes"
+-- m: Use "[+]" instead of "[Modified]"
+-- r: Use "[RO]" instead of "[readonly]"
+-- t: Truncate file message at the start if it
+--  is too long to fit on the command-line.
+-- T: Truncate other messages in the middle if
+--  they are too long to fit on the command-line.
+opt.shortmess = "lmrtT"
+-- When a bracket is inserted, briefly jump to the matching one.
+opt.showmatch = true
+-- Splitting a window will put the new window below the
+--  current one.
+opt.splitbelow = true
+-- Splitting a window will put the new window right of
+--  the current one.
+opt.splitright = true
+-- Enables 24-bit RGB color in the TUI.
+opt.termguicolors = true
+-- The title of the window will be set to the value of
+--  'titlestring' (if it is not empty).
+opt.title = true
+-- Avoid breaking lines if it is longer than the width
+--  of the window.
+opt.wrap = false
+-- Put a message on the last line showing current mode.
+opt.showmode = true
+
+-- Disable indentation for specific file types.
+vim.cmd [[ filetype indent off ]]
+
+-- Disables these options when entering any file.
+-- c: Auto-wrap comments, inserting the current comment
+--  leader automatically.
+-- r: Automatically insert the current comment leader
+--  after hitting <ENTER> in Insert Mode.
+-- o: Automatically insert the current comment leader
+--  after hitting 'o' or 'O' in Normal mode.
+api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    opt.formatoptions:remove({ "c", "r", "o" })
+  end
+})
