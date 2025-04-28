@@ -12,6 +12,7 @@ nvim/
     ├── plugins/                 # Plugins scripts.
     │   ├── catppuccin.lua       # Colorscheme.
     │   ├── markdown-preview.lua # Markdown preview utility.
+    │   ├── neoscroll.lua        # Smooth scrolling.
     │   ├── nvim-colorizer.lua   # Highlight color codes.
     │   └── todo-comments.lua    # Highlight comments like TODO, WARN etc.
     ├── bootstrap.lua            # Install Pckr and setups plugins.
