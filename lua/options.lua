@@ -6,7 +6,29 @@ local api = vim.api
 g.mapleader = " "
 g.maplocalleader = " "
 
--- Eanbles mouse support for all modes.
+-- These are general indentation that I use, there are also
+--  indentations inside 'after/ftplugin' for some programming
+--  languages.
+
+-- Number of spaces that a tab in the file counts for.
+opt.tabstop = 2
+-- Number of spaces to use for each step of indent.
+opt.shiftwidth = 2
+-- Number of spaces that a tab counts for while performing
+--  editing operations, like tab or bs.
+opt.softtabstop = 2
+-- Use space instead of tab when indenting with '>' or '<'.
+opt.expandtab = true
+
+-- Show non-printable characters.
+opt.list = true
+opt.listchars = {
+  tab = "▸\\", -- a	a	a
+  space = "·", -- a a a
+  trail = "~", -- aaa 
+}
+
+-- Enables mouse support for all modes.
 opt.mouse = 'a'
 -- Uses the clipboard register '*', same as system.
 opt.clipboard = "unnamedplus"
@@ -29,12 +51,6 @@ opt.relativenumber = true
 -- Set the cursor line to be always in the middle
 --  of the window, except at the start or end of the file.
 opt.scrolloff = 999
--- Number of spaces that a tab in the file counts for.
-opt.tabstop = 2
--- Number of spaces to use for each step of indent.
-opt.shiftwidth = 2
--- Use space instead of tab when indenting with '>' or '<'.
-opt.expandtab = true
 -- l: Use "999L, 888B" instead of "999 lines, 888 bytes"
 -- m: Use "[+]" instead of "[Modified]"
 -- r: Use "[RO]" instead of "[readonly]"
@@ -61,9 +77,6 @@ opt.title = true
 opt.wrap = false
 -- Put a message on the last line showing current mode.
 opt.showmode = true
-
--- Disable indentation for specific file types.
-vim.cmd [[ filetype indent off ]]
 
 -- Disables these options when entering any file.
 -- c: Auto-wrap comments, inserting the current comment
