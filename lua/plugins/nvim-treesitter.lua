@@ -3,7 +3,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   branch = "master",
   tag = "v0.9.3",
-  run = function()
+  config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {"c", "lua", "markdown"},
       sync_install = true,

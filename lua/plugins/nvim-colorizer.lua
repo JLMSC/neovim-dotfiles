@@ -2,7 +2,7 @@
 return {
   "catgoose/nvim-colorizer.lua",
   branch = "master",
-  run = function()
+  config = function()
     require("colorizer").setup({
       filetypes = { "*" },
       user_commands = false,
