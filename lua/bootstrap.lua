@@ -16,6 +16,10 @@ function M.bootstrap_pckr()
   vim.opt.rtp:prepend(pckr_path)
 
   local pckr = require("pckr")
+  pckr.setup({
+    autoremove = true,
+    autoinstall = true,
+  })
   for _, plugin in ipairs(plugins) do
     pckr.add({ require(plugin) })
   end
