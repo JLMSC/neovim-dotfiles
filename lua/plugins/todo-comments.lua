@@ -44,7 +44,7 @@ return {
         max_line_len = 79
       },
       -- NOTE: These highlight groups are define
-      --  in 'lua/plugins/catppuccin.lua' the right
+      --  in 'lua/plugins/catppuccin.lua', the right
       --  values are fallbacks, in case the highlight
       --  groups are not found. (Default values)
       colors = {

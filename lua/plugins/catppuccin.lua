@@ -29,7 +29,7 @@ return {
       -- Defines the highlight groups for any other
       --  files that uses those highlight groups.
       -- This is for when I get tired of light or dark mode,
-      --  so that when changed it I don't get to do a lot of work.
+      --  so that when changing it I don't have to do a lot of work.
       custom_highlights = function(colors)
         return {
           -- NOTE: These are used in 'settings/statusline.lua'.
