@@ -7,6 +7,9 @@ My neovim custom dotfiles.
 ## Structure
 ```
 nvim/
+├── after/                       # Overrule default settings.
+│   └── ftplugin/                # Filetype plugins.
+│       └── python.lua           # Custom Python identation.
 ├── init.lua                     # Runs options and bootstrap.
 └── lua/                         # Lua scripts.
     ├── plugins/                 # Plugins scripts.
