@@ -8,6 +8,8 @@ return {
   -- NOTE: This is a test.
   -- TEST: This is a test.
   "folke/todo-comments.nvim",
+  branch = "main",
+  tag = "v1.4.0",
   config = function()
     require("todo-comments").setup({
       signs = false,

@@ -1,6 +1,8 @@
 -- https://github.com/catppuccin/nvim
 return {
   "catppuccin/nvim",
+  branch = "main",
+  tag = "v1.9.0",
   config = function()
     require("catppuccin").setup({
       flavour = "auto",

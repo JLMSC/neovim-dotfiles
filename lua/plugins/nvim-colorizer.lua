@@ -1,7 +1,8 @@
 -- https://github.com/norcalli/nvim-colorizer.lua
 return {
   "catgoose/nvim-colorizer.lua",
-  config = function()
+  branch = "master",
+  run = function()
     require("colorizer").setup({
       filetypes = { "*" },
       user_commands = false,

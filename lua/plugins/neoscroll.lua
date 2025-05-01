@@ -1,6 +1,8 @@
 -- https://github.com/karb94/neoscroll.nvim
 return {
   "karb94/neoscroll.nvim",
+  branch = "master",
+  tag = "0.2.0",
   config = function()
     local neoscroll = require("neoscroll")
     neoscroll.setup({
