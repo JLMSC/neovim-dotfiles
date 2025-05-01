@@ -1,3 +1,4 @@
+-- NOTE: Gets every file inside 'lua/plugins/' and returns them as a list.
 local plugins_dir = vim.fn.stdpath("config") .. "/lua/plugins"
 local plugins = {}
 
