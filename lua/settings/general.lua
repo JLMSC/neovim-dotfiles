@@ -1,32 +1,9 @@
 local g = vim.g
 local opt = vim.opt
-local api = vim.api
 
 -- Maps <Leader> to <SPACE>.
 g.mapleader = " "
 g.maplocalleader = " "
-
--- These are general indentation that I use, there are also
---  indentations inside 'after/ftplugin' for some programming
---  languages.
-
--- Number of spaces that a tab in the file counts for.
-opt.tabstop = 2
--- Number of spaces to use for each step of indent.
-opt.shiftwidth = 2
--- Number of spaces that a tab counts for while performing
---  editing operations, like tab or bs.
-opt.softtabstop = 2
--- Use space instead of tab when indenting with '>' or '<'.
-opt.expandtab = true
-
--- Show non-printable characters.
-opt.list = true
-opt.listchars = {
-  tab = "▸\\", -- a	a	a
-  space = "·", -- a a a
-  trail = "~", -- aaa 
-}
 
 -- Enables mouse support for all modes.
 opt.mouse = 'a'
@@ -77,17 +54,10 @@ opt.title = true
 opt.wrap = false
 -- Put a message on the last line showing current mode.
 opt.showmode = true
-
--- Disables these options when entering any file.
--- c: Auto-wrap comments, inserting the current comment
---  leader automatically.
--- r: Automatically insert the current comment leader
---  after hitting <ENTER> in Insert Mode.
--- o: Automatically insert the current comment leader
---  after hitting 'o' or 'O' in Normal mode.
-api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  callback = function()
-    opt.formatoptions:remove({ "c", "r", "o" })
-  end
-})
+-- Show non-printable characters.
+opt.list = true
+opt.listchars = {
+  tab = "▸\\", -- a	a	a
+  space = "·", -- a a a
+  trail = "~", -- aaa 
+}
