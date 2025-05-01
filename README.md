@@ -14,6 +14,7 @@ nvim/
     │   ├── markdown-preview.lua # Markdown preview utility.
     │   ├── neoscroll.lua        # Smooth scrolling.
     │   ├── nvim-colorizer.lua   # Highlight color codes.
+    │   ├── nvim-treesitter.lua  # Syntax highlight.
     │   └── todo-comments.lua    # Highlight comments like TODO, WARN etc.
     ├── bootstrap.lua            # Install Pckr and setups plugins.
     ├── options.lua              # Neovim custom settings.
