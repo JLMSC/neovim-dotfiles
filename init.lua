@@ -1,3 +1,3 @@
-require("options")
+require("settings")
 require("bootstrap").bootstrap_pckr()
 
