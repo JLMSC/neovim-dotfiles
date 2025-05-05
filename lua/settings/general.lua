@@ -22,9 +22,6 @@ opt.cursorline = true
 opt.ignorecase = true
 -- Print the line number in front of each line.
 opt.number = true
--- Show the line number relative to the line with
---  the cursor in front of each line.
-opt.relativenumber = true
 -- Set the cursor line to be always in the middle
 --  of the window, except at the start or end of the file.
 opt.scrolloff = 999
