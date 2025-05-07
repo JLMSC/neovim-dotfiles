@@ -1,3 +1,4 @@
+-- NOTE: All the highlight groups are defined in 'lua/plugins/catppuccin.lua'
 vim.diagnostic.config({
   -- Use underline for diagnostics.
   underline = true,
