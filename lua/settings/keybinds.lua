@@ -11,7 +11,7 @@ end, { expr = true, noremap = true })
 vim.keymap.set("i", "<S-Tab>", function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<Tab>"
 end, { expr = true, noremap = true })
--- Hides the completion menu but keeps in the Insert mode.
+-- Hides the completion menu but keeps on Insert mode.
 vim.keymap.set("i", "<Esc>", function()
   return vim.fn.pumvisible() == 1 and "<C-e>" or "<Esc>"
 end, { expr = true, noremap = true })
