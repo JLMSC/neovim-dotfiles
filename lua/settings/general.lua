@@ -58,3 +58,13 @@ opt.listchars = {
   space = "·", -- a a a
   trail = "~", -- aaa 
 }
+-- NOTE: Used by 'lua/lsp/completion.lua'.
+-- A list of options for Insert mode completion.
+--  menuone: Use the popup menu also when there is only
+--   one match. Useful when there is additional information
+--   about the match, e.g., what file it comes from.
+--  noinsert: Do not insert any text for a match until
+--   the user selects a match from the menu.
+--  noselect: Same as 'noinsert', except that no menu item
+--   is pre-selected.
+opt.completeopt = "menuone,noinsert,noselect"
