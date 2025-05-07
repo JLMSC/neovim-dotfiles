@@ -48,6 +48,12 @@ return {
           TCPerf = { bg = colors.maroon },
           TCNote = { fg = colors.sky },
           TCText = { bg = colors.lavender },
+          -- NOTE: These are used in 'lua/lsp/diagnostic.lua´
+          DiagnosticVirtualLinesError = { fg = colors.red, italic = true },
+          DiagnosticVirtualLinesWarn = { fg = colors.yellow, italic = true },
+          DiagnosticVirtualLinesInfo = { fg = colors.teal, italic = true  },
+          DiagnosticVirtualLinesHint = { fg = colors.sky, italic = true },
+          DiagnosticVirtualLinesOk = { fg = colors.green, italic = true  },
         }
       end,
       default_integrations = false,
