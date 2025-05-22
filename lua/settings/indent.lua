@@ -14,3 +14,7 @@ opt.shiftwidth = 2
 opt.softtabstop = 2
 -- Use space instead of tab when indenting with '>' or '<'.
 opt.expandtab = true
+-- Copy indent from current line when starting a new line.
+opt.autoindent = true
+-- Removes smart autoindenting when starting a new line.
+opt.smartindent = false
