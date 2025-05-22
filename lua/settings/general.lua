@@ -5,6 +5,13 @@ local opt = vim.opt
 g.mapleader = " "
 g.maplocalleader = " "
 
+-- Doesn't use a swapfile for the buffer.
+opt.swapfile = false
+-- Doesn't make a backup before overwriting a file.
+opt.backup = false
+opt.writebackup = false
+-- When off a buffer is unloaded when it is abandoned.
+opt.hidden = false
 -- Enables mouse support for all modes.
 opt.mouse = 'a'
 -- Uses the clipboard register '*', same as system.
