@@ -12,5 +12,8 @@ api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
     opt.formatoptions:remove({ "c", "r", "o" })
+    -- Removes any expression which is evaluated to obtain the
+    --  proper indent for a line.
+    opt.indentexpr = ""
   end
 })
