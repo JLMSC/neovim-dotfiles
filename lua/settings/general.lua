@@ -23,6 +23,8 @@ opt.colorcolumn = "79"
 -- Avoid certain operations raise a dialog
 --  when exiting unsaved files.
 opt.confirm = true
+-- Hightlight the screen column of the cursor.
+opt.cursorcolumn = true
 -- Highlight the text line of the cursor.
 opt.cursorline = true
 -- Ignore case in search patterns.
