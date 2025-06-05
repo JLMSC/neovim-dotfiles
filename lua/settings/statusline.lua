@@ -40,10 +40,11 @@ opt.statusline = table.concat({
   -- Uses 'SLFile' as a highlight group.
   "%#SLFile#",
   "%p%% ",
-  -- Type of file in buffer.
-  -- Uses 'SLFile' as a highlight group.
-  "%#SLFile#",
-  "[%Y] ",
+  -- NOTE: These uses 'nvim-tree/nvim-web-devicons' plugin.
+  -- NOTE: Uses both the highlight group and icons to display it
+  --  in the statusline.
+  "%{%luaeval('\"%#\"..(select(2, require(\"nvim-web-devicons\").get_icon(vim.fn.expand(\"%:t\"), vim.fn.expand(\"%:e\"))))..\"#\"')%}",
+  "%{%v:lua.require(\"nvim-web-devicons\").get_icon(expand(\"%:t\"), expand(\"%:e\"))%} ",
   -- Creates a group:
   --  %l - Line number.
   --  %c - Column number.
@@ -51,3 +52,5 @@ opt.statusline = table.concat({
   "%#SLPosition#",
   "%([%l:%c]%) ",
 })
+-- Sorry for these one-liners in advance, making them into proper functions
+--  didn't make the cut.
