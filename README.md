@@ -1,68 +1,78 @@
 # Neovim-dotfiles
-My neovim custom dotfiles.
+My custom Neovim configuration.
 
-*Kindly be informed that the default configuration utilizes a light theme
- by default.*
+> **NOTE**: This setup uses a light colorscheme by default.
 
 ## Requirements
+```
 - Neovim v0.11
 - pyright (Optional)
+- clangd >= 12 (Optional)
+```
 
-## Structure
+## Project Structure
 ```
 nvim/
-├── init.lua                       # Runs 'lua/settings/' and 'lua/bootstrap/'.
-├── README.md                      # I don't know what this one does, do you?.
-├── after/                         # Overrule default settings.
-│   └── ftplugin/                  # Filetype plugins.
-│       └── python.lua             # Custom Python identation.
-├── lsp/                           # Custom settings for LSP.
-│   └── pyright.lua                # Custom settings for pyright LSP.
-└── lua/                           # Lua scripts.
-    ├── lsp/                       # Custom settings for Neovim LSP.
-    │   ├── init.lua               # Enables every lsp in 'lsp/' and runs every file inside 'lua/lsp/'.
-    │   ├── completion.lua         # Custom settings for Neovim LSP completions.
-    │   └── diagnostic.lua         # Custom settings for Neovim LSP diagnostics.
-    ├── plugins/                   # Plugins scripts.
-    │   ├── init.lua               # Get the name of every file inside 'plugins/' and returns it.
-    │   ├── catppuccin.lua         # Colorscheme.
-    │   ├── gitsigns.lua           # Git integration for buffers.
+├── init.lua                       # Loads settings and bootstraps plugins.
+├── README.md                      # You're reading it.
+├── after/                         # Overrides default Neovim behavior.
+│   └── ftplugin/                  # Filetype-specific settings.
+│       ├── c.lua                  # Custom indentation for C files.
+│       ├── markdown.lua           # Custom indentation for Markdown files.
+│       └── python.lua             # Custom indentation for Python files.
+├── lsp/                           # Per-language LSP configurations.
+│   ├── clangd.lua                 # Custom configurations for Clangd.
+│   └── pyright.lua                # Custom configurations for Pyright.
+└── lua/                           # Main configuration directory.
+    ├── lsp/                       # LSP-related configurations.
+    │   ├── init.lua               # Loads and sets up all LSP-related modules.
+    │   ├── completion.lua         # Configures autocompletion behavior.
+    │   └── diagnostic.lua         # Customizes diagnostic display.
+    ├── plugins/                   # Plugin-specific configurations.
+    │   ├── init.lua               # Dynamically loads plugin configs.
+    │   ├── catppuccin.lua         # Colorscheme configuration.
+    │   ├── gitsigns.lua           # Git status indicators for the sign column.
     │   ├── markdown-preview.lua   # Markdown preview utility.
-    │   ├── neoscroll.lua          # Smooth scrolling.
-    │   ├── nvim-colorizer.lua     # Highlight color codes.
-    │   ├── nvim-treesitter.lua    # Syntax highlight.
-    │   ├── nvim-web-devicons.lua  # Nerd font icons.
-    │   └── todo-comments.lua      # Highlight comments like TODO, WARN etc.
-    ├── settings/                  # Neovim settings.
-    │   ├── init.lua               # Runs every file inside 'settings/'.
-    │   ├── autocmds.lua           # Defines custom auto commands.
-    │   ├── general.lua            # Configures common settings.
-    │   ├── indent.lua             # Configures global indentation.
-    │   ├── keybinds.lua           # Configures custom keybinds.
-    │   └── statusline.lua         # Defines a custom statuslines.
-    └── bootstrap.lua              # Install Pckr and setups plugins.
+    │   ├── neoscroll.lua          # Enables smooth scrolling behavior.
+    │   ├── nvim-colorizer.lua     # Highlights hex/RGB color codes in buffers.
+    │   ├── nvim-treesitter.lua    # Syntax highlight and parsing via Treesitter.
+    │   ├── nvim-web-devicons.lua  # Provides file-type icones.
+    │   └── todo-comments.lua      # Highlights TODO, WARN etc. in code comments.
+    ├── settings/                  # Core Neovim settings.
+    │   ├── init.lua               # Loads all settings modules.
+    │   ├── autocmds.lua           # Defines custom autocommands.
+    │   ├── general.lua            # General settings.
+    │   ├── indent.lua             # Default/global indentation settings.
+    │   ├── keybinds.lua           # Custom key mappings.
+    │   └── statusline.lua         # Custom statusline setup.
+    └── bootstrap.lua              # Plugin manager setup.
 ```
 
-## About the colorscheme
-If you want to use another colorscheme instead of `catppuccin`, you **WILL**
- need to create the same highlight groups that were defined inside
- `lua/plugins/catppuccin.lua` somewhere to match your preferred colorscheme.
+## Colorscheme
+If you prefer to use a different colorscheme instead of `catppuccin`, you must
+ manually define the same highlight groups used in `lua/plugins/catppuccin.lua`
+ to ensure consistent UI elements (especially the statusline and diagnostics).
 
-## About pyright
-By default, `pyright` is configured to use a `.venv` within this folder. That
- means it is installed inside this `.venv` rather than global pip, you can
- achieve this by doing the following:
+## Python: Pyright Setup
+By default, `pyright` is configured to look for a virtual environment named
+ `.venv` in the root of this project. To set it up:
 ```bash
-> python -m venv .venv
-> source .venv/bin/activate
-> pip install pyright
+cd ~/.config/nvim
+python -m venv .venv
+source .venv/bin/active
+pip install pyright
 ```
-If you don't want to, you can change its behavior in `lsp/pyright.lua`.
+If you want to use a global pyright or change how it's invoked, edit the
+ settings in `lsp/pyright.lua`.
+
+## C/C++: Clangd Setup
+Clangd uses default options, so no extra configuration is required, just make
+ sure `clangd` is installed. If needed, you can tweak its behavior in
+ `lsp/clangd.lua`
 
 ## TO-DOs
-- [ ] Add a fallback to `nvim-web-devicons` in the statusline, should default
- to `%Y`, `""` or something.
-- [ ] Add screenshots of my setup, this can make someone's day easier.
-- [ ] Find a way to show a colorcolumn for indents, I get lost a ton.
-- [ ] Add a fold thingy.
-- [ ] Be happy about my nvim config.
+- [ ] Add a fallback for `nvim-web-devicons` in the statusline (default to
+ `%Y`, `""`, or something).
+- [ ] Add screenshots of the setup, this might make someone's life easier.
+- [ ] Add code folding support.
+- [ ] Be happy with me neovim config.
