@@ -35,7 +35,6 @@ nvim/
     │   ├── catppuccin.lua         # Colorscheme configuration.
     │   ├── gitsigns.lua           # Git status indicators for the sign column.
     │   ├── markdown-preview.lua   # Markdown preview utility.
-    │   ├── neoscroll.lua          # Enables smooth scrolling behavior.
     │   ├── nvim-colorizer.lua     # Highlights hex/RGB color codes in buffers.
     │   ├── nvim-treesitter.lua    # Syntax highlight and parsing via Treesitter.
     │   ├── nvim-web-devicons.lua  # Provides file-type icones.
@@ -73,7 +72,5 @@ Clangd uses default options, so no extra configuration is required, just make
  `lsp/clangd.lua`
 
 ## TO-DOs
-- [ ] Add a fallback for `nvim-web-devicons` in the statusline (default to
- `%Y`, `""`, or something).
 - [ ] Add code folding support.
 - [ ] Be happy with me neovim config.
