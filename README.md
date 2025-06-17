@@ -21,6 +21,7 @@ nvim/
 │       ├── c.lua                  # Custom indentation for C files.
 │       ├── markdown.lua           # Custom indentation for Markdown files.
 │       └── python.lua             # Custom indentation for Python files.
+├── assets/                        # Screenshots (can be deleted).
 ├── lsp/                           # Per-language LSP configurations.
 │   ├── clangd.lua                 # Custom configurations for Clangd.
 │   └── pyright.lua                # Custom configurations for Pyright.
