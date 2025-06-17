@@ -1,5 +1,10 @@
 # Neovim-dotfiles
-My custom Neovim configuration.
+A minimal, lightweight Neovim configuration, think of Nano's simplicity with
+ Neovim's power.
+
+No bloated plugins, no over-engineered setups. Just a clean, fast, flexible
+ editing experience, with sensible defaults and essential tooling where it
+ counts.
 
 ![Neovim](assets/neovim.png)
 > **NOTE**: This setup uses a light colorscheme by default.
