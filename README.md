@@ -1,6 +1,7 @@
 # Neovim-dotfiles
 My custom Neovim configuration.
 
+![Neovim](assets/neovim.png)
 > **NOTE**: This setup uses a light colorscheme by default.
 
 ## Requirements
