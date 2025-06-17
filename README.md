@@ -74,6 +74,5 @@ Clangd uses default options, so no extra configuration is required, just make
 ## TO-DOs
 - [ ] Add a fallback for `nvim-web-devicons` in the statusline (default to
  `%Y`, `""`, or something).
-- [ ] Add screenshots of the setup, this might make someone's life easier.
 - [ ] Add code folding support.
 - [ ] Be happy with me neovim config.
