@@ -14,7 +14,7 @@ return {
     -- NOTE: Uses custom highlight groups, they are
     --  defined inside 'lua/plugins/catppuccin.lua'
     "catppuccin/nvim",
-    -- NOTE: An option 'comments_only' uses nvim-treesitter.
+    -- NOTE: The option 'comments_only' uses nvim-treesitter.
     "nvim-treesitter/nvim-treesitter"
   },
   config = function()
