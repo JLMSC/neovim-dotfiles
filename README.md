@@ -1,81 +1,56 @@
 # Neovim-dotfiles
-A minimal, lightweight Neovim configuration, think of Nano's simplicity with
- Neovim's power.
-
-No bloated plugins, no over-engineered setups. Just a clean, fast, flexible
- editing experience, with sensible defaults and essential tooling where it
- counts.
+My Neovim setup, fully tailored for **pure Python development**.
 
 ![Neovim](assets/neovim.png)
-> **NOTE**: This setup uses a light colorscheme by default.
+> **NOTE**: This setup defaults to a light colorscheme. Don't judge me.
 
 ## Requirements
 ```
 - Neovim v0.11
-- pyright (Optional)
-- clangd >= 12 (Optional)
+- pyright
+- debugpy
 ```
-
-## Project Structure
-```
-nvim/
-├── init.lua                       # Loads settings and bootstraps plugins.
-├── README.md                      # You're reading it.
-├── after/                         # Overrides default Neovim behavior.
-│   └── ftplugin/                  # Filetype-specific settings.
-│       ├── c.lua                  # Custom indentation for C files.
-│       ├── markdown.lua           # Custom indentation for Markdown files.
-│       └── python.lua             # Custom indentation for Python files.
-├── assets/                        # Screenshots (can be deleted).
-├── lsp/                           # Per-language LSP configurations.
-│   ├── clangd.lua                 # Custom configurations for Clangd.
-│   └── pyright.lua                # Custom configurations for Pyright.
-└── lua/                           # Main configuration directory.
-    ├── lsp/                       # LSP-related configurations.
-    │   ├── init.lua               # Loads and sets up all LSP-related modules.
-    │   ├── completion.lua         # Configures autocompletion behavior.
-    │   └── diagnostic.lua         # Customizes diagnostic display.
-    ├── plugins/                   # Plugin-specific configurations.
-    │   ├── init.lua               # Dynamically loads plugin configs.
-    │   ├── catppuccin.lua         # Colorscheme configuration.
-    │   ├── gitsigns.lua           # Git status indicators for the sign column.
-    │   ├── markdown-preview.lua   # Markdown preview utility.
-    │   ├── nvim-colorizer.lua     # Highlights hex/RGB color codes in buffers.
-    │   ├── nvim-treesitter.lua    # Syntax highlight and parsing via Treesitter.
-    │   ├── nvim-web-devicons.lua  # Provides file-type icones.
-    │   └── todo-comments.lua      # Highlights TODO, WARN etc. in code comments.
-    ├── settings/                  # Core Neovim settings.
-    │   ├── init.lua               # Loads all settings modules.
-    │   ├── autocmds.lua           # Defines custom autocommands.
-    │   ├── general.lua            # General settings.
-    │   ├── indent.lua             # Default/global indentation settings.
-    │   ├── keybinds.lua           # Custom key mappings.
-    │   └── statusline.lua         # Custom statusline setup.
-    └── bootstrap.lua              # Plugin manager setup.
-```
-
-## Colorscheme
-If you prefer to use a different colorscheme instead of `catppuccin`, you must
- manually define the same highlight groups used in `lua/plugins/catppuccin.lua`
- to ensure consistent UI elements (especially the statusline and diagnostics).
 
 ## Python: Pyright Setup
-By default, `pyright` is configured to look for a virtual environment named
- `.venv` in the root of this project. To set it up:
+By default, `pyright` is configured to look for a virtual environment named `.venv`
+ inside `~/.config/nvim`, to set it up:
 ```bash
 cd ~/.config/nvim
 python -m venv .venv
-source .venv/bin/active
+source .venv/bin/activate
 pip install pyright
 ```
-If you want to use a global pyright or change how it's invoked, edit the
- settings in `lsp/pyright.lua`.
+Also, while the virtual environment is active, install `debugpy` to enable `nvim-dap`:
+```bash
+pip install debugpy
+```
 
-## C/C++: Clangd Setup
-Clangd uses default options, so no extra configuration is required, just make
- sure `clangd` is installed. If needed, you can tweak its behavior in
- `lsp/clangd.lua`
+## Nvim-DAP Setup
+Sometimes errors appear when installing `nvim-dap` for the first time, if this
+ is the case:
+**1.** Install `nvim-dap` first.
+**2.** Then install its dependencies.
 
-## TO-DOs
-- [ ] Add code folding support.
-- [ ] Be happy with me neovim config.
+## Leader key
+The default leader key is **Space**.
+
+## Plugins Included
+- **auto-save**: Because I'm too lazy to use `:w` all the time.
+- **auto-session**: Automatic session management, saves and restores workspaces.
+- **barbar**: Visual tabs for buffers.
+- **catppuccin**: Best colorscheme in the world.
+- **confirm-quit**: Prevents accidentally exiting Neovim without saving.
+- **coq_nvim**: Autocompletion.
+- **gitsign**: Git integration.
+- **indent-blankline**: Visual identation guides.
+- **lualine**: Beautiful statusline.
+- **nvim-dap**: Debugging.
+- **nvim-tree**: File explorer. (Use g? to see the keys)
+- **nvim-treesitter-context**: Sticky context.
+- **nvim-treesitter**: Better highlighting and parsing.
+- **nvim-web-devicons**: Icons.
+- **telescope**: Fuzzy finder.
+- **todo-comments**: Highlight TODOs.
+- **which-key**: Helps me remember my mappings.
+
+> **MISSING**: Something to automate SSHFS/SSH remote development.
