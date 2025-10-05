@@ -1,5 +1,0 @@
-require("settings.general")
-require("settings.autocmds")
-require("settings.indent")
-require("settings.statusline")
-require("settings.keybinds")
