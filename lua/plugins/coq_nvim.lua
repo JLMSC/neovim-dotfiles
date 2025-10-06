@@ -32,6 +32,19 @@ return {
             },
             update_in_insert = true,
         })
+        vim.opt.updatetime = 500
+        vim.api.nvim_create_autocmd("CursorHold", {
+            callback = function ()
+                vim.diagnostic.open_float(nil, {
+                    focusable = false,
+                    border = "rounded",
+                    source = "always",
+                    prefix = "",
+                    max_width = 88,
+                    wrap = true,
+                })
+            end,
+        })
 
         vim.lsp.config("pyright", {
             cmd = {
@@ -48,8 +61,9 @@ return {
                         autoImportCompletions = true,
                         autoSearchPaths = true,
                         useLibraryCodeForTypes = true,
+                        disableTaggedHints = false,
                         diagnosticMode = "openFilesOnly",
-                        typeCheckingMode = "standard",
+                        typeCheckingMode = "basic",
                     },
                 },
             },
