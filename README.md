@@ -4,6 +4,9 @@ My Neovim setup, fully tailored for **pure Python development**.
 ![Neovim](assets/neovim.png)
 > **NOTE**: This setup defaults to a light colorscheme. Don't judge me.
 
+## Default Leader Key
+The default leader key is **Space**.
+
 ## Requirements
 ```
 - Neovim v0.11
@@ -25,14 +28,24 @@ Also, while the virtual environment is active, install `debugpy` to enable `nvim
 pip install debugpy
 ```
 
-## Nvim-DAP Setup
+## Nvim-DAP: Setup
 Sometimes errors appear when installing `nvim-dap` for the first time, if this
  is the case:
 **1.** Install `nvim-dap` first.
 **2.** Then install its dependencies.
 
-## Leader key
-The default leader key is **Space**.
+## SSHFS: Mount and Unmount (for local Neovim development)
+```bash
+cd /mnt
+mkdir project
+sudo chown $USER:$USER /mnt/project
+chmod 777 /mnt/notebook
+
+sshfs -o uid=1000,gid=1000,allow_other,default_permissions,umask=0022 user@host:/project_path /mnt/project
+
+sudo fusermount -u /mnt/project
+rm -rf /mnt/project
+```
 
 ## Plugins Included
 - **auto-save**: Because I'm too lazy to use `:w` all the time.
