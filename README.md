@@ -31,16 +31,18 @@ pip install debugpy
 ## Nvim-DAP: Setup
 Sometimes errors appear when installing `nvim-dap` for the first time, if this
  is the case:
-**1.** Install `nvim-dap` first.
-**2.** Then install its dependencies.
 
-## SSHFS: Mount and Unmount (for local Neovim development)
+1. Install `nvim-dap` first.
+2. Then install its dependencies.
+
+## SSHFS: Mount and Unmount (for remote <-> local Neovim development)
 ```bash
 cd /mnt
 mkdir project
 sudo chown $USER:$USER /mnt/project
 chmod 777 /mnt/notebook
 
+# To use allow_other you need to uncomment "user_allow_other" in /etc/fuse.conf
 sshfs -o uid=1000,gid=1000,allow_other,default_permissions,umask=0022 user@host:/project_path /mnt/project
 
 sudo fusermount -u /mnt/project
@@ -66,4 +68,8 @@ rm -rf /mnt/project
 - **todo-comments**: Highlight TODOs.
 - **which-key**: Helps me remember my mappings.
 
-> **MISSING**: Something to automate SSHFS/SSH remote development.
+## TO-DO
+- [ ] Something to automate SSHFS/SSH remote <-> local development.
+- [ ] AI completion or something like that.
+- [ ] Note taking within Neovim.
+- [ ] neovim-tips (liked the idea, may add it later on)
