@@ -6,6 +6,16 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     opts = {
+        filters = {
+            dotfiles = true,
+            custom = {
+                ".git",
+                "__pycache__"
+            },
+            exclude = {
+                ".env",
+            },
+        },
         diagnostics = {
             enable = true,
         },
